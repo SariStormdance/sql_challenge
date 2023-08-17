@@ -4,6 +4,12 @@
 -- 	PRIMARY KEY (Title_id)
 -- );
 
+-- CREATE TABLE Salaries (
+-- 	Emp_no INTEGER NOT NULL,
+-- 	Salary INTEGER,
+-- 	PRIMARY KEY (Emp_no)
+-- );
+
 -- CREATE TABLE Employees (
 -- 	Emp_no INTEGER NOT NULL,
 -- 	Emp_Title VARCHAR(30),
@@ -11,33 +17,28 @@
 -- 	First_name VARCHAR (30),
 -- 	Last_name VARCHAR (30),
 -- 	Sex VARCHAR (1),
--- 	Hire_date VARCHAR(20),
--- 	PRIMARY KEY (Emp_no),
+-- 	Hire_date DATE,
+-- 	FOREIGN KEY (Emp_no) REFERENCES Salaries(Emp_no),
 -- 	FOREIGN KEY (Emp_Title) REFERENCES Titles(title_id)
+-- );
+
+-- Create Table Departments (
+-- 	Dept_no VARCHAR(10),
+-- 	Dept_name VARCHAR(30),
+-- 	PRIMARY KEY (Dept_no)
 -- );
 
 -- CREATE TABLE dept_emp (
 -- 	Emp_no INTEGER NOT NULL,
--- 	Dept_no VARCHAR(5) NOT NULL,
--- 	PRIMARY KEY (emp_no, dept_no)
+-- 	Dept_no VARCHAR(10) NOT NULL,
+-- 	FOREIGN KEY (Emp_no) REFERENCES Salaries(Emp_no),
+--   FOREIGN KEY (Dept_no) REFERENCES Departments(Dept_no)
 -- );
 
 -- CREATE TABLE Dept_manager (
--- 	Dept_no VARCHAR(5) NOT NULL,
+-- 	Dept_no VARCHAR(10) NOT NULL,
 -- 	Emp_no INTEGER NOT NULL,
--- 	PRIMARY KEY (dept_no, emp_no)
--- );
-
--- Create Table Departments (
--- 	Dept_no VARCHAR(5),
--- 	Dept_name VARCHAR(30),
--- 	Primary Key (Dept_no)
--- );
-
--- CREATE TABLE Salaries (
--- 	Emp_no INT NOT NULL,
--- 	Salary INT,
--- 	PRIMARY KEY (Emp_no)
+-- 	PRIMARY KEY (Dept_no, Emp_no)
 -- );
 
 -- Select 
