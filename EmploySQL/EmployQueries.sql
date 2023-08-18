@@ -1,5 +1,5 @@
 -- CREATE TABLE Titles( 
--- 	Title_id VARCHAR(10),
+-- 	Title_id VARCHAR(5) NOT NULL,
 -- 	Title VARCHAR(30),
 -- 	PRIMARY KEY (Title_id)
 -- );
@@ -10,43 +10,44 @@
 -- 	PRIMARY KEY (Emp_no)
 -- );
 
+-- Create Table Departments (
+-- 	Dept_no VARCHAR(4),
+-- 	Dept_name VARCHAR(30),
+-- 	PRIMARY KEY (Dept_no)
+-- );
+
 -- CREATE TABLE Employees (
 -- 	Emp_no INTEGER NOT NULL,
--- 	Emp_Title VARCHAR(30),
+-- 	Emp_Title VARCHAR(5) NOT NULL,
 -- 	Birthdate DATE,
--- 	First_name VARCHAR (30),
--- 	Last_name VARCHAR (30),
+-- 	First_name VARCHAR (20),
+-- 	Last_name VARCHAR (20),
 -- 	Sex VARCHAR (1),
 -- 	Hire_date DATE,
 -- 	FOREIGN KEY (Emp_no) REFERENCES Salaries(Emp_no),
 -- 	FOREIGN KEY (Emp_Title) REFERENCES Titles(title_id)
 -- );
 
--- Create Table Departments (
--- 	Dept_no VARCHAR(10),
--- 	Dept_name VARCHAR(30),
--- 	PRIMARY KEY (Dept_no)
--- );
-
 -- CREATE TABLE dept_emp (
 -- 	Emp_no INTEGER NOT NULL,
--- 	Dept_no VARCHAR(10) NOT NULL,
+-- 	Dept_no VARCHAR(4) NOT NULL,
 -- 	FOREIGN KEY (Emp_no) REFERENCES Salaries(Emp_no),
---   FOREIGN KEY (Dept_no) REFERENCES Departments(Dept_no)
+--  FOREIGN KEY (Dept_no) REFERENCES Departments(Dept_no)
 -- );
 
 -- CREATE TABLE Dept_manager (
--- 	Dept_no VARCHAR(10) NOT NULL,
+-- 	Dept_no VARCHAR(4) NOT NULL,
 -- 	Emp_no INTEGER NOT NULL,
 -- 	PRIMARY KEY (Dept_no, Emp_no)
 -- );
 
--- Select 
--- Emp_no,
--- Last_name,
--- First_name,
--- Sex
--- From Employees; 
+SELECT 
+-- Employees.Emp_no,
+-- Employees.First_name,
+-- Employees.Last_name,
+-- Employees.Sex,
+-- Salaries.Salary
+-- FROM Employees INNER JOIN Salaries ON Employees.Emp_no = --Salaries.Emp_no;
 
 -- Select 
 -- First_name,
