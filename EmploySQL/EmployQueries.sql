@@ -13,7 +13,7 @@
 -- CREATE TABLE Employees (
 -- 	Emp_no INTEGER NOT NULL,
 -- 	Emp_Title VARCHAR(30),
--- 	Birthdate VARCHAR (20),
+-- 	Birthdate DATE,
 -- 	First_name VARCHAR (30),
 -- 	Last_name VARCHAR (30),
 -- 	Sex VARCHAR (1),
