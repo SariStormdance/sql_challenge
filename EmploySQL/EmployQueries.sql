@@ -56,3 +56,13 @@ SELECT
 -- From Employees
 -- Where hire_date > '12/31/1985'
 -- AND hire_date < '1/1/1987';
+
+-- Select 
+-- Dept_emp.Dept_no,
+-- Employees.Emp_no,
+-- Employees.Last_name,
+-- Employees.First_name,
+-- Departments.Dept_name
+-- From Employees 
+-- INNER JOIN Dept_emp ON Employees.Emp_no = Dept_emp.Emp_no
+-- INNER JOIN Departments ON Dept_emp.Dept_no = Departments.Dept_no;
