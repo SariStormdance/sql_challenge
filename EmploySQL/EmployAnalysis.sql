@@ -23,6 +23,15 @@ FROM Employees INNER JOIN Salaries ON Employees.Emp_no = Salaries.Emp_no;
 --Query 3
 --List the manager of each department along with their department number, department name, employee number, last name, and first name.
 
+Select 
+Departments.Dept_no,
+Departments.Dept_name,
+Dept_manager.Emp_no,
+Employees.Last_name,
+Employees.First_name
+From Departments 
+INNER JOIN Dept_manager ON Departments.Dept_no = Dept_manager.Dept_no
+INNER JOIN Employees ON Dept_manager.Emp_no = Employees.Emp_no;
 
 --Query 4
 --List the department number for each employee along with that employee’s employee number, last name, first name, and department name.
