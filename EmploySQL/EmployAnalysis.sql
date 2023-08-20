@@ -15,38 +15,38 @@ FROM Employees Emp INNER JOIN Salaries Sal ON Emp.Emp_no = Sal.Emp_no;
 --Query 2
 --List the first name, last name, and hire date for the employees who were hired in 1986.
 
-Select
+SELECT
 First_name,
 Last_name, 
 Hire_date
-From Employees
-Where hire_date > '12/31/1985'
+FROM Employees
+WHERE hire_date > '12/31/1985'
 AND hire_date < '1/1/1987';
 
 --Query 3
 --List the manager of each department along with their department number, department name, employee number, last name, and first name.
 
-Select 
+SELECT 
 Emp.First_name || ' ' || Emp.Last_name AS Mgr_name,
 Dep.Dept_no,
 Dep.Dept_name,
 DepMan.Emp_no,
 Emp.Last_name,
 Emp.First_name
-From Departments Dep
+FROM Departments Dep
 INNER JOIN Dept_manager DepMan ON Dep.Dept_no = DepMan.Dept_no
 INNER JOIN Employees Emp ON DepMan.Emp_no = Emp.Emp_no;
 
 --Query 4
 --List the department number for each employee along with that employee's employee number, last name, first name, and department name.
 
-Select 
+SELECT 
 DepEmp.Dept_no,
 Emp.Emp_no,
 Emp.Last_name,
 Emp.First_name,
 Dep.Dept_name
-From Employees Emp
+FROM Employees Emp
 INNER JOIN Dept_emp DepEmp ON Emp.Emp_no = DepEmp.Emp_no
 INNER JOIN Departments Dep ON DepEmp.Dept_no = Dep.Dept_no;
 
