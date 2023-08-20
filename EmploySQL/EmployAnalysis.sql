@@ -1,15 +1,16 @@
 --Analysis
+
 --Query 1
 --List the employee number, last name, first name, sex, and salary of each employee.
 
 SELECT 
-Employees.First_name || ' ' || Employees.Last_name AS Emp_name,
-Employees.Emp_no,
-Employees.First_name,
-Employees.Last_name,
-Employees.Sex,
-Salaries.Salary
-FROM Employees INNER JOIN Salaries ON Employees.Emp_no = Salaries.Emp_no;
+Emp.First_name || ' ' || Emp.Last_name AS Emp_name,
+Emp.Emp_no,
+Emp.First_name,
+Emp.Last_name,
+Emp.Sex,
+Sal.Salary
+FROM Employees Emp INNER JOIN Salaries Sal ON Emp.Emp_no = Sal.Emp_no;
 
 --Query 2
 --List the first name, last name, and hire date for the employees who were hired in 1986.
@@ -26,28 +27,28 @@ AND hire_date < '1/1/1987';
 --List the manager of each department along with their department number, department name, employee number, last name, and first name.
 
 Select 
-Employees.First_name || ' ' || Employees.Last_name AS Mgr_name,
-Departments.Dept_no,
-Departments.Dept_name,
-Dept_manager.Emp_no,
-Employees.Last_name,
-Employees.First_name
-From Departments 
-INNER JOIN Dept_manager ON Departments.Dept_no = Dept_manager.Dept_no
-INNER JOIN Employees ON Dept_manager.Emp_no = Employees.Emp_no;
+Emp.First_name || ' ' || Emp.Last_name AS Mgr_name,
+Dep.Dept_no,
+Dep.Dept_name,
+DepMan.Emp_no,
+Emp.Last_name,
+Emp.First_name
+From Departments Dep
+INNER JOIN Dept_manager DepMan ON Dep.Dept_no = DepMan.Dept_no
+INNER JOIN Employees Emp ON DepMan.Emp_no = Emp.Emp_no;
 
 --Query 4
 --List the department number for each employee along with that employee's employee number, last name, first name, and department name.
 
 Select 
-Dept_emp.Dept_no,
-Employees.Emp_no,
-Employees.Last_name,
-Employees.First_name,
-Departments.Dept_name
-From Employees 
-INNER JOIN Dept_emp ON Employees.Emp_no = Dept_emp.Emp_no
-INNER JOIN Departments ON Dept_emp.Dept_no = Departments.Dept_no;
+DepEmp.Dept_no,
+Emp.Emp_no,
+Emp.Last_name,
+Emp.First_name,
+Dep.Dept_name
+From Employees Emp
+INNER JOIN Dept_emp DepEmp ON Emp.Emp_no = DepEmp.Emp_no
+INNER JOIN Departments Dep ON DepEmp.Dept_no = Dep.Dept_no;
 
 --Query 5
 --List first name, last name, and sex of each employee whose first name is Hercules and whose last name begins with the letter B.
@@ -65,26 +66,26 @@ WHERE First_name = 'Hercules';
 --List each employee in the Sales department, including their employee number, last name, and first name.
 
 SELECT
-Employees.First_name || ' ' || Employees.Last_name AS Emp_name,
-Dept_emp.Emp_no,
-Employees.Last_name,
-Employees.First_name,
-Departments.dept_name
-FROM Employees INNER JOIN Dept_emp ON Employees.Emp_no = Dept_emp.Emp_no
-INNER JOIN Departments ON Dept_emp.Dept_no = Departments.Dept_no
-WHERE Departments.Dept_name = 'Sales';
+Emp.First_name || ' ' || Emp.Last_name AS Emp_name,
+DepEmp.Emp_no,
+Emp.Last_name,
+Emp.First_name,
+Dep.dept_name
+FROM Employees Emp INNER JOIN Dept_emp DepEmp ON Emp.Emp_no = DepEmp.Emp_no
+INNER JOIN Departments Dep ON DepEmp.Dept_no = Dep.Dept_no
+WHERE Dep.Dept_name = 'Sales';
 
 --Query 7
 --List each employee in the Sales and Development departments, including their employee number, last name, first name, and department name.
 
 SELECT 
-Dept_emp.Emp_no,
-Employees.Last_name,
-Employees.First_name,
-Departments.Dept_name
-FROM Employees INNER JOIN Dept_emp ON Employees.Emp_no = Dept_emp.Emp_no
-INNER JOIN Departments ON Dept_emp.Dept_no = Departments.Dept_no
-WHERE Departments.Dept_name = 'Development';
+DepEmp.Emp_no,
+Emp.Last_name,
+Emp.First_name,
+Dep.Dept_name
+FROM Employees Emp INNER JOIN Dept_emp DepEmp ON Emp.Emp_no = DepEmp.Emp_no
+INNER JOIN Departments Dep ON DepEmp.Dept_no = Dep.Dept_no
+WHERE Dep.Dept_name = 'Development';
 
 -- and Sales..
 
@@ -94,4 +95,4 @@ WHERE Departments.Dept_name = 'Development';
 -- SELECT 
 -- COUNT(DISTINCT(Last_name))
 -- FROM Employees
--- ORDER BY Desc COUNT();  or something like that. 
+-- ORDER BY Desc COUNT(); 
