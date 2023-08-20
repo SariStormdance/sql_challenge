@@ -35,7 +35,7 @@ CREATE TABLE Employees (
 CREATE TABLE Dept_manager (
 	Dept_no VARCHAR(4) NOT NULL,
 	Emp_no INTEGER NOT NULL,
- FOREIGN KEY (Dept_no) REFERENCES Departments(Dept_no),
+ 	FOREIGN KEY (Dept_no) REFERENCES Departments(Dept_no),
 	FOREIGN KEY (Emp_no) REFERENCES Salaries(Emp_no)
 );
 
